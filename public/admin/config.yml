@@ -2,7 +2,7 @@ backend:
   name: github
   repo: omerkhan/journal
   branch: main
-  base_url: https://sveltia-cms-auth.omerkhan.workers.dev
+  base_url: https://sveltia-cms-auth.omer-khan.workers.dev
 
 media_folder: public/images/uploads
 public_folder: /images/uploads
