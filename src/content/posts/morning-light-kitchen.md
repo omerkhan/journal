@@ -7,4 +7,4 @@ media:
   alt: Sunlight streaming through kitchen window onto wooden counter
 draft: false
 ---
-The way December light hits the counter at 6am. These quiet moments before everyone wakes up are something I've learned to treasure. The house is still, the coffee is brewing, and for just a few minutes the world feels perfectly calm.
+The way December light hits the counter at 7am. These quiet moments before everyone wakes up are something I've learned to treasure. The house is still, the coffee is brewing, and for just a few minutes the world feels perfectly calm.
