@@ -38,7 +38,7 @@ collections:
         file: "src/content/pages/now.md"
         fields:
           - { label: "Title", name: "title", widget: "string", default: "Now" }
-          - { label: "Last Updated", name: "updated", widget: "date", required: true }
+          - { label: "Last Updated", name: "updated", widget: "datetime", time_format: false, required: true }
           - { label: "Body", name: "body", widget: "markdown" }
 
       - label: "About Page"
