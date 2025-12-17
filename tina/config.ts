@@ -1,22 +1,27 @@
 import { defineConfig } from "tinacms";
 
+const branch =
+  process.env.GITHUB_BRANCH ||
+  process.env.VERCEL_GIT_COMMIT_REF ||
+  process.env.HEAD ||
+  "main";
+
 export default defineConfig({
-  branch: process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main",
-  clientId: process.env.TINA_CLIENT_ID || "",
-  token: process.env.TINA_TOKEN || "",
+  branch,
+
+  clientId: process.env.TINA_CLIENT_ID,
+  token: process.env.TINA_TOKEN,
 
   build: {
     outputFolder: "admin",
     publicFolder: "public",
   },
-
   media: {
     tina: {
       mediaRoot: "media",
       publicFolder: "public",
     },
   },
-
   schema: {
     collections: [
       {
@@ -57,7 +62,6 @@ export default defineConfig({
                 type: "string",
                 name: "alt",
                 label: "Alt Text",
-                description: "Describe the image for accessibility",
               },
             ],
           },
@@ -79,12 +83,6 @@ export default defineConfig({
         label: "Now Page",
         path: "src/content/pages",
         format: "md",
-        ui: {
-          allowedActions: {
-            create: false,
-            delete: false,
-          },
-        },
         match: {
           include: "now",
         },
@@ -113,12 +111,6 @@ export default defineConfig({
         label: "About Page",
         path: "src/content/pages",
         format: "md",
-        ui: {
-          allowedActions: {
-            create: false,
-            delete: false,
-          },
-        },
         match: {
           include: "about",
         },
