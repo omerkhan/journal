@@ -1,0 +1,22 @@
+---
+import PostCard from './PostCard.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<'posts'>[];
+}
+
+const { posts } = Astro.props;
+const getSlug = (id: string) => id.replace(/\.md$/, '');
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+  {posts.map((post) => (
+    <PostCard
+      title={post.data.title}
+      date={post.data.date}
+      slug={getSlug(post.id)}
+      media={post.data.media}
+    />
+  ))}
+</div>

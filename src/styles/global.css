@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-background text-text-primary antialiased;
+  }
+
+  body {
+    @apply font-sans text-body min-h-screen;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-medium;
+  }
+
+  a {
+    @apply text-accent hover:text-accent-hover transition-colors duration-200;
+  }
+
+  img {
+    @apply max-w-full h-auto;
+  }
+}
+
+@layer components {
+  .prose {
+    @apply text-text-primary;
+  }
+
+  .prose p {
+    @apply mb-4;
+  }
+
+  .prose h2 {
+    @apply font-serif text-2xl mt-8 mb-4;
+  }
+
+  .prose h3 {
+    @apply font-serif text-xl mt-6 mb-3;
+  }
+
+  .prose ul, .prose ol {
+    @apply mb-4 pl-6;
+  }
+
+  .prose li {
+    @apply mb-2;
+  }
+
+  .prose ul li {
+    @apply list-disc;
+  }
+
+  .prose ol li {
+    @apply list-decimal;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-accent pl-4 italic my-4 text-text-secondary;
+  }
+
+  .prose a {
+    @apply text-accent hover:text-accent-hover underline underline-offset-2;
+  }
+
+  .prose strong {
+    @apply font-semibold;
+  }
+
+  .prose code {
+    @apply bg-border px-1.5 py-0.5 rounded text-sm;
+  }
+
+  .prose pre {
+    @apply bg-text-primary text-background p-4 rounded-lg overflow-x-auto my-4;
+  }
+
+  .prose pre code {
+    @apply bg-transparent p-0;
+  }
+}
+
+@layer utilities {
+  .transition-base {
+    @apply transition-all duration-200 ease-out;
+  }
+}

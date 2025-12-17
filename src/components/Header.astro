@@ -1,0 +1,32 @@
+---
+const navItems = [
+  { href: '/', label: 'Feed' },
+  { href: '/now', label: 'Now' },
+  { href: '/about', label: 'About' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="py-8 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <a href="/" class="font-serif text-2xl sm:text-3xl text-text-primary hover:text-text-primary no-underline">
+      Omer Khan
+    </a>
+    <nav class="flex items-center gap-6 sm:gap-8">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'text-sm font-medium uppercase tracking-wide transition-colors duration-200 no-underline',
+            currentPath === item.href
+              ? 'text-accent'
+              : 'text-text-secondary hover:text-text-primary',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>

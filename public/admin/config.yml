@@ -1,0 +1,49 @@
+backend:
+  name: github
+  repo: omerkhan/journal
+  branch: main
+
+media_folder: "public/media"
+public_folder: "/media"
+
+collections:
+  - name: "posts"
+    label: "Journal Posts"
+    folder: "src/content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: false, hint: "Optional - leave blank for text-only micro posts" }
+      - { label: "Date", name: "date", widget: "datetime", required: true }
+      - label: "Media"
+        name: "media"
+        widget: "object"
+        required: false
+        collapsed: true
+        hint: "Optional - expand to add an image or video"
+        fields:
+          - { label: "URL", name: "url", widget: "string", required: true, hint: "Enter Cloudinary URL or upload to /media folder" }
+          - { label: "Type", name: "type", widget: "select", options: ["image", "video"], required: true }
+          - { label: "Alt Text", name: "alt", widget: "string", required: true, hint: "Describe the image for accessibility" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown", required: true }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Now Page"
+        name: "now"
+        file: "src/content/pages/now.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", default: "Now" }
+          - { label: "Last Updated", name: "updated", widget: "date", required: true }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - label: "About Page"
+        name: "about"
+        file: "src/content/pages/about.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", default: "About" }
+          - { label: "Body", name: "body", widget: "markdown" }

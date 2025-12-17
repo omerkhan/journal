@@ -1,0 +1,16 @@
+---
+interface Props {
+  href?: string;
+  label?: string;
+}
+
+const { href = '/', label = 'Back to feed' } = Astro.props;
+---
+
+<a
+  href={href}
+  class="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary transition-colors duration-200 no-underline text-sm font-medium"
+>
+  <span aria-hidden="true">&larr;</span>
+  <span>{label}</span>
+</a>

@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Feed from '../../components/Feed.astro';
+import Pagination from '../../components/Pagination.astro';
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const POSTS_PER_PAGE = 10;
+
+  const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+  const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: String(i + 1) },
+    props: {
+      posts: sortedPosts.slice(i * POSTS_PER_PAGE, (i + 1) * POSTS_PER_PAGE),
+      currentPage: i + 1,
+      totalPages,
+    },
+  }));
+};
+
+const { posts, currentPage, totalPages } = Astro.props;
+---
+
+<BaseLayout title={`Journal - Page ${currentPage}`}>
+  <section class="px-4 sm:px-6 lg:px-8 pb-16">
+    <div class="max-w-2xl mx-auto">
+      <Feed posts={posts} />
+      <Pagination currentPage={currentPage} totalPages={totalPages} />
+    </div>
+  </section>
+</BaseLayout>

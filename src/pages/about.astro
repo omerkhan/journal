@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+
+const aboutPage = await getEntry('pages', 'about');
+
+if (!aboutPage) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await aboutPage.render();
+---
+
+<BaseLayout title="About">
+  <section class="px-4 sm:px-6 lg:px-8 pb-16">
+    <div class="max-w-2xl mx-auto">
+      <h1 class="font-serif text-post-title-mobile sm:text-post-title text-text-primary mb-8">
+        {aboutPage.data.title || 'About'}
+      </h1>
+
+      <div class="prose max-w-reading">
+        <Content />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

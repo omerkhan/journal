@@ -1,16 +1,24 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Feed from '../components/Feed.astro';
+import Pagination from '../components/Pagination.astro';
+import { getCollection } from 'astro:content';
 
+const POSTS_PER_PAGE = 10;
+
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+const currentPage = 1;
+const posts = sortedPosts.slice(0, POSTS_PER_PAGE);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Journal">
+  <section class="px-4 sm:px-6 lg:px-8 pb-16">
+    <div class="max-w-2xl mx-auto">
+      <Feed posts={posts} />
+      <Pagination currentPage={currentPage} totalPages={totalPages} />
+    </div>
+  </section>
+</BaseLayout>

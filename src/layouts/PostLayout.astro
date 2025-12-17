@@ -1,0 +1,113 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import MediaDisplay from '../components/MediaDisplay.astro';
+import BackLink from '../components/BackLink.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+  prevPost?: CollectionEntry<'posts'> | null;
+  nextPost?: CollectionEntry<'posts'> | null;
+}
+
+const { post, prevPost, nextPost } = Astro.props;
+const { title, date, media } = post.data;
+
+const getSlug = (id: string) => id.replace(/\.md$/, '');
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+});
+
+// For text-only posts, use a truncated version of the content as page title
+const pageTitle = title || formattedDate;
+
+// Helper to get prev/next title or date fallback
+const getPostLabel = (p: CollectionEntry<'posts'>) => {
+  return p.data.title || p.data.date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+  });
+};
+---
+
+<BaseLayout title={pageTitle}>
+  <article class="px-4 sm:px-6 lg:px-8 pb-16">
+    <div class="max-w-2xl mx-auto">
+      <!-- Back link -->
+      <div class="mb-8">
+        <BackLink />
+      </div>
+
+      <!-- Media (if present) -->
+      {media && (
+        <div class="mb-8 -mx-4 sm:mx-0">
+          <MediaDisplay media={media} />
+        </div>
+      )}
+
+      <!-- Header -->
+      <header class="mb-8">
+        {title && (
+          <h1 class="font-serif text-post-title-mobile sm:text-post-title text-text-primary mb-3">
+            {title}
+          </h1>
+        )}
+        <p class="text-text-secondary text-sm">
+          {formattedDate}
+        </p>
+      </header>
+
+      <!-- Content -->
+      <div class="prose max-w-reading">
+        <slot />
+      </div>
+
+      <!-- Post navigation -->
+      {(prevPost || nextPost) && (
+        <nav class="mt-16 pt-8 border-t border-border">
+          <div class="flex items-center justify-between gap-4">
+            {prevPost ? (
+              <a
+                href={`/posts/${getSlug(prevPost.id)}`}
+                class="flex-1 text-left no-underline group"
+              >
+                <span class="text-text-secondary text-sm block mb-1">&larr; Previous</span>
+                <span class="text-text-primary group-hover:text-accent transition-colors duration-200 font-medium line-clamp-1">
+                  {getPostLabel(prevPost)}
+                </span>
+              </a>
+            ) : (
+              <div class="flex-1" />
+            )}
+
+            {nextPost ? (
+              <a
+                href={`/posts/${getSlug(nextPost.id)}`}
+                class="flex-1 text-right no-underline group"
+              >
+                <span class="text-text-secondary text-sm block mb-1">Next &rarr;</span>
+                <span class="text-text-primary group-hover:text-accent transition-colors duration-200 font-medium line-clamp-1">
+                  {getPostLabel(nextPost)}
+                </span>
+              </a>
+            ) : (
+              <div class="flex-1" />
+            )}
+          </div>
+        </nav>
+      )}
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

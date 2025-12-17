@@ -1,0 +1,34 @@
+---
+interface Props {
+  media: {
+    url: string;
+    type: 'image' | 'video';
+    alt: string;
+  };
+  class?: string;
+}
+
+const { media, class: className = '' } = Astro.props;
+---
+
+<div class:list={['w-full', className]}>
+  {media.type === 'image' ? (
+    <img
+      src={media.url}
+      alt={media.alt}
+      class="w-full h-auto rounded-lg shadow-sm"
+      loading="eager"
+    />
+  ) : (
+    <video
+      src={media.url}
+      class="w-full h-auto rounded-lg shadow-sm"
+      controls
+      playsinline
+      preload="metadata"
+    >
+      <track kind="captions" />
+      Your browser does not support the video tag.
+    </video>
+  )}
+</div>
