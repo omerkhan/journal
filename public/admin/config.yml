@@ -1,0 +1,44 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: posts
+    label: Posts
+    folder: src/content/posts
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Date, name: date, widget: datetime }
+      - label: Media
+        name: media
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: Image, name: url, widget: image, required: false }
+          - { label: Type, name: type, widget: hidden, default: image }
+          - { label: Alt Text, name: alt, widget: string, required: false, default: "" }
+      - { label: Draft, name: draft, widget: boolean, default: false, required: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: pages
+    label: Pages
+    files:
+      - label: Now
+        name: now
+        file: src/content/pages/now.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Last Updated, name: lastUpdated, widget: datetime }
+          - { label: Body, name: body, widget: markdown }
+      - label: About
+        name: about
+        file: src/content/pages/about.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Body, name: body, widget: markdown }
