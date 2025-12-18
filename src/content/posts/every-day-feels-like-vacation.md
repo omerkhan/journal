@@ -5,6 +5,7 @@ media:
   url: /images/uploads/IMG_3967.jpeg
   type: image
   alt: ''
+location: Lakewood Ranch, FL
 draft: false
 ---
 I'm grateful to wakeup to this beautiful view every morning. I still have to pinch myself that I'm not dreaming.
