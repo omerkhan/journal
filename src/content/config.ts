@@ -6,7 +6,7 @@ const posts = defineCollection({
     title: z.string().optional(),
     date: z.coerce.date(),
     media: z.object({
-      url: z.string().url(),
+      url: z.string(),
       type: z.enum(['image', 'video']),
       alt: z.string(),
     }).optional(),
