@@ -7,4 +7,4 @@ media:
   alt: ''
 draft: false
 ---
-I'm grateful to wakeup to a beautiful view every morning. Sstill have to pinch myself that I'm not dreaming.
+I'm grateful to wakeup to this beautiful view every morning. I still have to pinch myself that I'm not dreaming.
