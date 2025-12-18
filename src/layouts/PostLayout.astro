@@ -11,7 +11,9 @@ interface Props {
 }
 
 const { post, prevPost, nextPost } = Astro.props;
-const { title, date, media } = post.data;
+const { title, date, media, location } = post.data;
+
+const mapsUrl = location ? `https://www.google.com/maps/search/${encodeURIComponent(location)}` : null;
 
 const getSlug = (id: string) => id.replace(/\.md$/, '');
 
@@ -57,6 +59,19 @@ const getPostLabel = (p: CollectionEntry<'posts'>) => {
         )}
         <p class="text-text-secondary text-sm">
           {formattedDate}
+          {location && (
+            <>
+              {' '}&middot;{' '}
+              <a
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-accent transition-colors duration-200"
+              >
+                {location}
+              </a>
+            </>
+          )}
         </p>
       </header>
 

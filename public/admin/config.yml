@@ -27,6 +27,7 @@ collections:
           - { label: Image, name: url, widget: image, required: false }
           - { label: Type, name: type, widget: hidden, default: image }
           - { label: Alt Text, name: alt, widget: string, required: false, default: "" }
+      - { label: Location, name: location, widget: string, required: false, hint: "e.g. Dubai, UAE or San Francisco, CA" }
       - { label: Draft, name: draft, widget: boolean, default: false, required: false }
       - { label: Body, name: body, widget: markdown }
 

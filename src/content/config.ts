@@ -10,6 +10,7 @@ const posts = defineCollection({
       type: z.enum(['image', 'video']),
       alt: z.string(),
     }).optional(),
+    location: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
