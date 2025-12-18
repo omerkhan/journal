@@ -1,7 +1,6 @@
 ---
-title: "About"
+title: About
 ---
-
 This is a small corner of the internet where I share moments from my life. Think of it as a visual journal—a way to document the ordinary beauty that fills our days.
 
 ## Why this exists
