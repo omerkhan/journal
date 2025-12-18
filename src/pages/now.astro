@@ -10,7 +10,7 @@ if (!nowPage) {
 
 const { Content } = await nowPage.render();
 
-const formattedDate = nowPage.data.updated?.toLocaleDateString('en-US', {
+const formattedDate = nowPage.data.lastUpdated?.toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric',
   year: 'numeric',

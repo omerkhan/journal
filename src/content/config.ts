@@ -19,7 +19,7 @@ const pages = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string().optional(),
-    updated: z.coerce.date().optional(),
+    lastUpdated: z.coerce.date().optional(),
   }),
 });
 

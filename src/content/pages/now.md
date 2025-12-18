@@ -1,7 +1,6 @@
 ---
 title: Now
 lastUpdated: 2025-12-18T10:27:00
-updated: 2024-12-16
 ---
 ## Currently
 
