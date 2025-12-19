@@ -8,7 +8,7 @@ Building a personal journaling website to share moments with family and friends.
 
 ## Reading
 
-"The Creative Act: A Way of Being" by Rick Rubin – he is one of the most successful music producers of all time, despite having no traditional musical talent, because he does less, listens more, and trusts feeling and instinct over formulas.
+"The Creative Act: A Way of Being" by Rick Rubin. He's one of the most successful music producers of all time, despite having no 'real' musical talent, because he does less, listens more, and trusts his feelings and instincts.
 
 ## Learning
 
