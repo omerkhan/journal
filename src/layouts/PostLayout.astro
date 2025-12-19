@@ -10,10 +10,10 @@ interface Props {
 }
 
 const { post, prevPost, nextPost } = Astro.props;
-const { title, date, image, media, location } = post.data;
+const { title, date, photo, image, media, location } = post.data;
 
-// Get image URL from either 'image' field or 'media.url' (backwards compat)
-const imageUrl = image || media?.url || null;
+// Get image URL from any of the possible field formats
+const imageUrl = photo || image || media?.url || null;
 
 const mapsUrl = location ? `https://www.google.com/maps/search/${encodeURIComponent(location)}` : null;
 

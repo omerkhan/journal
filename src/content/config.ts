@@ -5,7 +5,8 @@ const posts = defineCollection({
   schema: z.object({
     title: z.string().optional(),
     date: z.coerce.date(),
-    // Accept both formats: simple string OR media object (for backwards compat)
+    // Accept all possible image field formats for resilience
+    photo: z.string().optional().nullable(),
     image: z.string().optional().nullable(),
     media: z.object({
       url: z.string(),
