@@ -54,21 +54,25 @@ const getPostLabel = (p: CollectionEntry<'posts'>) => {
       <!-- Image (if present) -->
       {imageUrl && imageModule && (
         <div class="mb-8 -mx-4 sm:mx-0">
-          <Image
-            src={imageModule.default}
-            alt=""
-            width={672}
-            class="w-full h-auto object-cover sm:rounded-lg"
-          />
+          <a href={imageUrl} target="_blank" class="block cursor-zoom-in">
+            <Image
+              src={imageModule.default}
+              alt=""
+              width={672}
+              class="w-full h-auto object-cover sm:rounded-lg"
+            />
+          </a>
         </div>
       )}
       {imageUrl && !imageModule && (
         <div class="mb-8 -mx-4 sm:mx-0">
-          <img
-            src={imageUrl}
-            alt=""
-            class="w-full h-auto object-cover sm:rounded-lg"
-          />
+          <a href={imageUrl} target="_blank" class="block cursor-zoom-in">
+            <img
+              src={imageUrl}
+              alt=""
+              class="w-full h-auto object-cover sm:rounded-lg"
+            />
+          </a>
         </div>
       )}
 
