@@ -32,7 +32,7 @@ const getExcerpt = (body: string, maxLength: number = 200): string => {
       title={post.data.title}
       date={post.data.date}
       slug={getSlug(post.id)}
-      media={post.data.media}
+      image={post.data.image}
       location={post.data.location}
       excerpt={getExcerpt(post.body || '')}
     />

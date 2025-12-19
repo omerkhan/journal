@@ -5,11 +5,7 @@ const posts = defineCollection({
   schema: z.object({
     title: z.string().optional(),
     date: z.coerce.date(),
-    media: z.object({
-      url: z.string(),
-      type: z.enum(['image', 'video']),
-      alt: z.string(),
-    }).optional().nullable(),
+    image: z.string().optional().nullable(),
     location: z.string().optional(),
     draft: z.boolean().default(false),
   }),

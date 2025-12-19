@@ -1,6 +1,5 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import MediaDisplay from '../components/MediaDisplay.astro';
 import BackLink from '../components/BackLink.astro';
 import type { CollectionEntry } from 'astro:content';
 
@@ -11,7 +10,7 @@ interface Props {
 }
 
 const { post, prevPost, nextPost } = Astro.props;
-const { title, date, media, location } = post.data;
+const { title, date, image, location } = post.data;
 
 const mapsUrl = location ? `https://www.google.com/maps/search/${encodeURIComponent(location)}` : null;
 
@@ -43,10 +42,14 @@ const getPostLabel = (p: CollectionEntry<'posts'>) => {
         <BackLink />
       </div>
 
-      <!-- Media (if present) -->
-      {media && (
+      <!-- Image (if present) -->
+      {image && (
         <div class="mb-8 -mx-4 sm:mx-0">
-          <MediaDisplay media={media} />
+          <img
+            src={image}
+            alt=""
+            class="w-full h-auto object-cover sm:rounded-lg"
+          />
         </div>
       )}
 
