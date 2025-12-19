@@ -10,7 +10,10 @@ interface Props {
 }
 
 const { post, prevPost, nextPost } = Astro.props;
-const { title, date, image, location } = post.data;
+const { title, date, image, media, location } = post.data;
+
+// Get image URL from either 'image' field or 'media.url' (backwards compat)
+const imageUrl = image || media?.url || null;
 
 const mapsUrl = location ? `https://www.google.com/maps/search/${encodeURIComponent(location)}` : null;
 
@@ -43,10 +46,10 @@ const getPostLabel = (p: CollectionEntry<'posts'>) => {
       </div>
 
       <!-- Image (if present) -->
-      {image && (
+      {imageUrl && (
         <div class="mb-8 -mx-4 sm:mx-0">
           <img
-            src={image}
+            src={imageUrl}
             alt=""
             class="w-full h-auto object-cover sm:rounded-lg"
           />

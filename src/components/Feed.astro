@@ -9,6 +9,13 @@ interface Props {
 const { posts } = Astro.props;
 const getSlug = (id: string) => id.replace(/\.md$/, '');
 
+// Get image URL from either 'image' field or 'media.url' (backwards compat)
+const getImageUrl = (data: CollectionEntry<'posts'>['data']): string | null => {
+  if (data.image) return data.image;
+  if (data.media?.url) return data.media.url;
+  return null;
+};
+
 // Helper to extract excerpt from post body
 const getExcerpt = (body: string, maxLength: number = 200): string => {
   // Remove markdown formatting
@@ -32,7 +39,7 @@ const getExcerpt = (body: string, maxLength: number = 200): string => {
       title={post.data.title}
       date={post.data.date}
       slug={getSlug(post.id)}
-      image={post.data.image}
+      image={getImageUrl(post.data)}
       location={post.data.location}
       excerpt={getExcerpt(post.body || '')}
     />
