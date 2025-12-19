@@ -12,7 +12,7 @@ Building a personal journaling website to share moments with family and friends.
 
 ## Learning
 
-Getting more comfortable with photography. Trying to capture more every moments in Florida.
+Getting more comfortable with iPhone photography and starting to explore iPhone video. Recently picked up [this gimbal](https://a.co/d/aWojBEY) to level things up a bit. Trying to capture more everyday moments in Florida.
 
 ## Location
 
