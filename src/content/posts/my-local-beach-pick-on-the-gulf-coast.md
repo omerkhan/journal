@@ -1,7 +1,10 @@
 ---
 title: My local beach pick on the Gulf Coast
 date: 2025-12-19T08:38:00
-media: null
+media:
+  url: /images/uploads/IMG_3662.jpeg
+  type: image
+  alt: ""
 location: Coquina Beach, FL
 draft: false
 ---

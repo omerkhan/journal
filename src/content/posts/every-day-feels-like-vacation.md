@@ -1,7 +1,10 @@
 ---
 title: Every day feels like vacation
 date: 2025-12-18T08:51:00
-image: /images/uploads/IMG_3967.jpeg
+media:
+  url: /images/uploads/IMG_3967.jpeg
+  type: image
+  alt: ""
 location: Lakewood Ranch, FL
 draft: false
 ---
