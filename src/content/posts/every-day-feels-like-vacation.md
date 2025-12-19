@@ -8,4 +8,4 @@ media:
 location: Lakewood Ranch, FL
 draft: false
 ---
-I'm grateful to wakeup to this beautiful view every morning. I still have to pinch myself that I'm not dreaming.
+I'm grateful to wake up to this beautiful view every morning. I still have to pinch myself that I'm not dreaming.
