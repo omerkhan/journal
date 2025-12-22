@@ -9,4 +9,4 @@ The modern world tells us everything should be perfectly put together. If someth
 
 Wabi Sabi is a quiet reminder that things don’t have to be perfect to have value. Things can be incomplete, uneven, in progress, and still be enough.
 
-Not everything needs fixing or upgrading. Some things are fine just the way they are.
+Not everything needs fixing or upgrading. Things are fine the way they are.
