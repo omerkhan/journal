@@ -7,6 +7,6 @@ draft: false
 ---
 The modern world tells us everything should be perfectly put together. If something looks imperfect, we assume there's something wrong with it.
 
-Wabi Sabi has a different lens. It’s being okay with things that aren’t perfect. Things that are still in progress. Things that don’t need to be fixed or improved.
+Wabi Sabi is a quiet reminder that things don’t have to be perfect to have value. Things can be incomplete, a little uneven, still in progress, and still be enough.
 
-Not everything has to be optimized. Some things are fine just the way they are.
+Not everything needs fixing or upgrading. Some things are fine just the way they are.
