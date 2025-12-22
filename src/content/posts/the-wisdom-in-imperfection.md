@@ -7,6 +7,6 @@ draft: false
 ---
 The modern world tells us everything should be perfectly put together. If something looks imperfect, we assume there's something wrong with it.
 
-Wabi Sabi is a quiet reminder that things don’t have to be perfect to have value. Things can be incomplete, a little uneven, still in progress, and still be enough.
+Wabi Sabi is a quiet reminder that things don’t have to be perfect to have value. Things can be incomplete, uneven, in progress, and still be enough.
 
 Not everything needs fixing or upgrading. Some things are fine just the way they are.
